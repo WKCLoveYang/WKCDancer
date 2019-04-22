@@ -1,0 +1,22 @@
+//
+//  SLCDancer.pch
+//  SLCDancerDemo
+//
+//  Created by WeiKunChao on 2019/3/24.
+//  Copyright © 2019 SecretLisa. All rights reserved.
+//
+
+#ifndef SLCDancer_pch
+#define SLCDancer_pch
+
+#import "UIView+SLCShadow.h"
+#import <MJExtension.h>
+#import <Masonry.h>
+#import <SLCDancer.h>
+
+#define SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
+#define SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
+
+
+
+#endif /* SLCDancer_pch */

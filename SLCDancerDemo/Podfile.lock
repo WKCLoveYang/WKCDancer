@@ -1,0 +1,24 @@
+PODS:
+  - Masonry (1.1.0)
+  - MJExtension (3.0.15.1)
+  - SLCDancer (1.5.1)
+
+DEPENDENCIES:
+  - Masonry
+  - MJExtension
+  - SLCDancer
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - MJExtension
+    - SLCDancer
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  SLCDancer: 1deebee62f6f901d3f82a379fe5c2e52357ac3c8
+
+PODFILE CHECKSUM: 46a7664acf07eb36dd214591a9ef54ff21b07d8d
+
+COCOAPODS: 1.7.0.beta.3

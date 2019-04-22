@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		300314D921A9E4CBC1EEB3AF /* libPods-default-SLCDancerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F53093DE2A2FC01FBED5DE /* libPods-default-SLCDancerDemo.a */; };
+		916834E1225B34DC000FB6C4 /* SLCDancerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916834E0225B34DC000FB6C4 /* SLCDancerCollectionViewController.m */; };
+		916834E4225B4F97000FB6C4 /* SLCDancerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916834E3225B4F97000FB6C4 /* SLCDancerTableViewController.m */; };
+		9170CE232248761900A43617 /* SLCDancerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9170CE222248761900A43617 /* SLCDancerCollectionViewCell.m */; };
+		9170CE2A2248A32900A43617 /* SLCDancerTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9170CE282248A32900A43617 /* SLCDancerTransitionViewController.m */; };
+		9170CE2B2248A32900A43617 /* SLCDancerTransitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9170CE292248A32900A43617 /* SLCDancerTransitionViewController.xib */; };
+		91E60D792247C20B00D0FF2C /* UIView+SLCShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E60D782247C20A00D0FF2C /* UIView+SLCShadow.m */; };
+		91E60D7B2247C2E800D0FF2C /* main_bg_make.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D7A2247C2E800D0FF2C /* main_bg_make.jpg */; };
+		91E60D7F2247C45400D0FF2C /* SLCMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E60D7E2247C45400D0FF2C /* SLCMainModel.m */; };
+		91E60D812247C68100D0FF2C /* main_bg_take.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D802247C68100D0FF2C /* main_bg_take.jpg */; };
+		91E60D832247C6CA00D0FF2C /* main_bg_move.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D822247C6CA00D0FF2C /* main_bg_move.jpg */; };
+		91E60D852247C8A700D0FF2C /* main_bg_add.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D842247C8A700D0FF2C /* main_bg_add.jpg */; };
+		91E60D872247C92E00D0FF2C /* main_bg_path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D862247C92E00D0FF2C /* main_bg_path.jpg */; };
+		91E60D892247C9AD00D0FF2C /* main_bg_tra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91E60D882247C9AC00D0FF2C /* main_bg_tra.jpg */; };
+		91E60D8C2247CA2A00D0FF2C /* SLCMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E60D8B2247CA2A00D0FF2C /* SLCMainCollectionViewCell.m */; };
+		91E60D912247D19E00D0FF2C /* SLCDancerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E60D902247D19E00D0FF2C /* SLCDancerViewController.m */; };
+		91F93D5A224691F800E22AFD /* SLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F93D59224691F800E22AFD /* SLCAppDelegate.m */; };
+		91F93D5D224691F800E22AFD /* SLCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F93D5C224691F800E22AFD /* SLCMainViewController.m */; };
+		91F93D62224691FA00E22AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F93D61224691FA00E22AFD /* Assets.xcassets */; };
+		91F93D65224691FA00E22AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F93D63224691FA00E22AFD /* LaunchScreen.storyboard */; };
+		91F93D68224691FA00E22AFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F93D67224691FA00E22AFD /* main.m */; };
+		91F93D7B224693F300E22AFD /* SLCLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F93D79224693F300E22AFD /* SLCLaunchViewController.m */; };
+		91F93D7C224693F300E22AFD /* SLCLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91F93D7A224693F300E22AFD /* SLCLaunchViewController.xib */; };
+		91F93D7E2246944400E22AFD /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91F93D7D2246944400E22AFD /* bg.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B8881BBF96107043BA21185 /* Pods-default-SLCDancerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-SLCDancerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-SLCDancerDemo/Pods-default-SLCDancerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		74F53093DE2A2FC01FBED5DE /* libPods-default-SLCDancerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-default-SLCDancerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		752B2C87FEEEE7069245F062 /* Pods-default-SLCDancerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-SLCDancerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-SLCDancerDemo/Pods-default-SLCDancerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		916834DF225B34DC000FB6C4 /* SLCDancerCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancerCollectionViewController.h; sourceTree = "<group>"; };
+		916834E0225B34DC000FB6C4 /* SLCDancerCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCDancerCollectionViewController.m; sourceTree = "<group>"; };
+		916834E2225B4F97000FB6C4 /* SLCDancerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancerTableViewController.h; sourceTree = "<group>"; };
+		916834E3225B4F97000FB6C4 /* SLCDancerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCDancerTableViewController.m; sourceTree = "<group>"; };
+		9170CE212248761900A43617 /* SLCDancerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancerCollectionViewCell.h; sourceTree = "<group>"; };
+		9170CE222248761900A43617 /* SLCDancerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCDancerCollectionViewCell.m; sourceTree = "<group>"; };
+		9170CE272248A32900A43617 /* SLCDancerTransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancerTransitionViewController.h; sourceTree = "<group>"; };
+		9170CE282248A32900A43617 /* SLCDancerTransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCDancerTransitionViewController.m; sourceTree = "<group>"; };
+		9170CE292248A32900A43617 /* SLCDancerTransitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SLCDancerTransitionViewController.xib; sourceTree = "<group>"; };
+		91E60D752247C16E00D0FF2C /* SLCDancer.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancer.pch; sourceTree = "<group>"; };
+		91E60D772247C20A00D0FF2C /* UIView+SLCShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SLCShadow.h"; sourceTree = "<group>"; };
+		91E60D782247C20A00D0FF2C /* UIView+SLCShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SLCShadow.m"; sourceTree = "<group>"; };
+		91E60D7A2247C2E800D0FF2C /* main_bg_make.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_make.jpg; sourceTree = "<group>"; };
+		91E60D7D2247C45400D0FF2C /* SLCMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCMainModel.h; sourceTree = "<group>"; };
+		91E60D7E2247C45400D0FF2C /* SLCMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCMainModel.m; sourceTree = "<group>"; };
+		91E60D802247C68100D0FF2C /* main_bg_take.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_take.jpg; sourceTree = "<group>"; };
+		91E60D822247C6CA00D0FF2C /* main_bg_move.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_move.jpg; sourceTree = "<group>"; };
+		91E60D842247C8A700D0FF2C /* main_bg_add.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_add.jpg; sourceTree = "<group>"; };
+		91E60D862247C92E00D0FF2C /* main_bg_path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_path.jpg; sourceTree = "<group>"; };
+		91E60D882247C9AC00D0FF2C /* main_bg_tra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg_tra.jpg; sourceTree = "<group>"; };
+		91E60D8A2247CA2A00D0FF2C /* SLCMainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCMainCollectionViewCell.h; sourceTree = "<group>"; };
+		91E60D8B2247CA2A00D0FF2C /* SLCMainCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCMainCollectionViewCell.m; sourceTree = "<group>"; };
+		91E60D8F2247D19E00D0FF2C /* SLCDancerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCDancerViewController.h; sourceTree = "<group>"; };
+		91E60D902247D19E00D0FF2C /* SLCDancerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCDancerViewController.m; sourceTree = "<group>"; };
+		91F93D55224691F800E22AFD /* SLCDancerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLCDancerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F93D58224691F800E22AFD /* SLCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCAppDelegate.h; sourceTree = "<group>"; };
+		91F93D59224691F800E22AFD /* SLCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCAppDelegate.m; sourceTree = "<group>"; };
+		91F93D5B224691F800E22AFD /* SLCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCMainViewController.h; sourceTree = "<group>"; };
+		91F93D5C224691F800E22AFD /* SLCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCMainViewController.m; sourceTree = "<group>"; };
+		91F93D61224691FA00E22AFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91F93D64224691FA00E22AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91F93D66224691FA00E22AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91F93D67224691FA00E22AFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		91F93D78224693F300E22AFD /* SLCLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCLaunchViewController.h; sourceTree = "<group>"; };
+		91F93D79224693F300E22AFD /* SLCLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCLaunchViewController.m; sourceTree = "<group>"; };
+		91F93D7A224693F300E22AFD /* SLCLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SLCLaunchViewController.xib; sourceTree = "<group>"; };
+		91F93D7D2246944400E22AFD /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91F93D52224691F800E22AFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300314D921A9E4CBC1EEB3AF /* libPods-default-SLCDancerDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35D15F6CE49E60B3EDC9559C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74F53093DE2A2FC01FBED5DE /* libPods-default-SLCDancerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9170CE202248760500A43617 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9170CE212248761900A43617 /* SLCDancerCollectionViewCell.h */,
+				9170CE222248761900A43617 /* SLCDancerCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91E60D762247C1DB00D0FF2C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				91E60D772247C20A00D0FF2C /* UIView+SLCShadow.h */,
+				91E60D782247C20A00D0FF2C /* UIView+SLCShadow.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		91E60D7C2247C36900D0FF2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91E60D7D2247C45400D0FF2C /* SLCMainModel.h */,
+				91E60D7E2247C45400D0FF2C /* SLCMainModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91E60D8D2247CA2E00D0FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91E60D8A2247CA2A00D0FF2C /* SLCMainCollectionViewCell.h */,
+				91E60D8B2247CA2A00D0FF2C /* SLCMainCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91E60D8E2247D18300D0FF2C /* Dancer */ = {
+			isa = PBXGroup;
+			children = (
+				9170CE202248760500A43617 /* View */,
+				91E60D8F2247D19E00D0FF2C /* SLCDancerViewController.h */,
+				91E60D902247D19E00D0FF2C /* SLCDancerViewController.m */,
+				9170CE272248A32900A43617 /* SLCDancerTransitionViewController.h */,
+				9170CE282248A32900A43617 /* SLCDancerTransitionViewController.m */,
+				9170CE292248A32900A43617 /* SLCDancerTransitionViewController.xib */,
+				916834DF225B34DC000FB6C4 /* SLCDancerCollectionViewController.h */,
+				916834E0225B34DC000FB6C4 /* SLCDancerCollectionViewController.m */,
+				916834E2225B4F97000FB6C4 /* SLCDancerTableViewController.h */,
+				916834E3225B4F97000FB6C4 /* SLCDancerTableViewController.m */,
+			);
+			path = Dancer;
+			sourceTree = "<group>";
+		};
+		91F93D4C224691F800E22AFD = {
+			isa = PBXGroup;
+			children = (
+				91F93D57224691F800E22AFD /* SLCDancerDemo */,
+				91F93D56224691F800E22AFD /* Products */,
+				E85FD52447FC0957BB0FE9DE /* Pods */,
+				35D15F6CE49E60B3EDC9559C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		91F93D56224691F800E22AFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91F93D55224691F800E22AFD /* SLCDancerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91F93D57224691F800E22AFD /* SLCDancerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				91E60D762247C1DB00D0FF2C /* Manager */,
+				91F93D6F224692E700E22AFD /* Controller */,
+				91F93D6E2246928200E22AFD /* Supports */,
+			);
+			path = SLCDancerDemo;
+			sourceTree = "<group>";
+		};
+		91F93D6E2246928200E22AFD /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				91F93D7D2246944400E22AFD /* bg.jpg */,
+				91E60D7A2247C2E800D0FF2C /* main_bg_make.jpg */,
+				91E60D802247C68100D0FF2C /* main_bg_take.jpg */,
+				91E60D822247C6CA00D0FF2C /* main_bg_move.jpg */,
+				91E60D842247C8A700D0FF2C /* main_bg_add.jpg */,
+				91E60D862247C92E00D0FF2C /* main_bg_path.jpg */,
+				91E60D882247C9AC00D0FF2C /* main_bg_tra.jpg */,
+				91F93D58224691F800E22AFD /* SLCAppDelegate.h */,
+				91F93D59224691F800E22AFD /* SLCAppDelegate.m */,
+				91F93D61224691FA00E22AFD /* Assets.xcassets */,
+				91F93D63224691FA00E22AFD /* LaunchScreen.storyboard */,
+				91F93D66224691FA00E22AFD /* Info.plist */,
+				91F93D67224691FA00E22AFD /* main.m */,
+				91E60D752247C16E00D0FF2C /* SLCDancer.pch */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		91F93D6F224692E700E22AFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91F93D742246933F00E22AFD /* Launch */,
+				91F93D70224692F200E22AFD /* Main */,
+				91E60D8E2247D18300D0FF2C /* Dancer */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		91F93D70224692F200E22AFD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				91E60D8D2247CA2E00D0FF2C /* View */,
+				91E60D7C2247C36900D0FF2C /* Model */,
+				91F93D5B224691F800E22AFD /* SLCMainViewController.h */,
+				91F93D5C224691F800E22AFD /* SLCMainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		91F93D742246933F00E22AFD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				91F93D78224693F300E22AFD /* SLCLaunchViewController.h */,
+				91F93D79224693F300E22AFD /* SLCLaunchViewController.m */,
+				91F93D7A224693F300E22AFD /* SLCLaunchViewController.xib */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		E85FD52447FC0957BB0FE9DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B8881BBF96107043BA21185 /* Pods-default-SLCDancerDemo.debug.xcconfig */,
+				752B2C87FEEEE7069245F062 /* Pods-default-SLCDancerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91F93D54224691F800E22AFD /* SLCDancerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91F93D6B224691FA00E22AFD /* Build configuration list for PBXNativeTarget "SLCDancerDemo" */;
+			buildPhases = (
+				182DDC5894196E49619CD2A4 /* [CP] Check Pods Manifest.lock */,
+				91F93D51224691F800E22AFD /* Sources */,
+				91F93D52224691F800E22AFD /* Frameworks */,
+				91F93D53224691F800E22AFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SLCDancerDemo;
+			productName = SLCDancerDemo;
+			productReference = 91F93D55224691F800E22AFD /* SLCDancerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91F93D4D224691F800E22AFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = SecretLisa;
+				TargetAttributes = {
+					91F93D54224691F800E22AFD = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 91F93D50224691F800E22AFD /* Build configuration list for PBXProject "SLCDancerDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 91F93D4C224691F800E22AFD;
+			productRefGroup = 91F93D56224691F800E22AFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				91F93D54224691F800E22AFD /* SLCDancerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91F93D53224691F800E22AFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91F93D65224691FA00E22AFD /* LaunchScreen.storyboard in Resources */,
+				91F93D7E2246944400E22AFD /* bg.jpg in Resources */,
+				91F93D62224691FA00E22AFD /* Assets.xcassets in Resources */,
+				91E60D852247C8A700D0FF2C /* main_bg_add.jpg in Resources */,
+				91F93D7C224693F300E22AFD /* SLCLaunchViewController.xib in Resources */,
+				91E60D872247C92E00D0FF2C /* main_bg_path.jpg in Resources */,
+				91E60D812247C68100D0FF2C /* main_bg_take.jpg in Resources */,
+				91E60D892247C9AD00D0FF2C /* main_bg_tra.jpg in Resources */,
+				91E60D832247C6CA00D0FF2C /* main_bg_move.jpg in Resources */,
+				9170CE2B2248A32900A43617 /* SLCDancerTransitionViewController.xib in Resources */,
+				91E60D7B2247C2E800D0FF2C /* main_bg_make.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		182DDC5894196E49619CD2A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-default-SLCDancerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91F93D51224691F800E22AFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91F93D7B224693F300E22AFD /* SLCLaunchViewController.m in Sources */,
+				9170CE232248761900A43617 /* SLCDancerCollectionViewCell.m in Sources */,
+				91E60D792247C20B00D0FF2C /* UIView+SLCShadow.m in Sources */,
+				9170CE2A2248A32900A43617 /* SLCDancerTransitionViewController.m in Sources */,
+				91E60D912247D19E00D0FF2C /* SLCDancerViewController.m in Sources */,
+				916834E1225B34DC000FB6C4 /* SLCDancerCollectionViewController.m in Sources */,
+				91F93D5D224691F800E22AFD /* SLCMainViewController.m in Sources */,
+				91E60D7F2247C45400D0FF2C /* SLCMainModel.m in Sources */,
+				91F93D68224691FA00E22AFD /* main.m in Sources */,
+				91F93D5A224691F800E22AFD /* SLCAppDelegate.m in Sources */,
+				91E60D8C2247CA2A00D0FF2C /* SLCMainCollectionViewCell.m in Sources */,
+				916834E4225B4F97000FB6C4 /* SLCDancerTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		91F93D63224691FA00E22AFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91F93D64224691FA00E22AFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91F93D69224691FA00E22AFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		91F93D6A224691FA00E22AFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91F93D6C224691FA00E22AFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8881BBF96107043BA21185 /* Pods-default-SLCDancerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 23869FAP88;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SLCDancerDemo/Supports/SLCDancer.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SLCDancerDemo/Supports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SecretLisa.SLCDancerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91F93D6D224691FA00E22AFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 752B2C87FEEEE7069245F062 /* Pods-default-SLCDancerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 23869FAP88;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SLCDancerDemo/Supports/SLCDancer.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SLCDancerDemo/Supports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SecretLisa.SLCDancerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91F93D50224691F800E22AFD /* Build configuration list for PBXProject "SLCDancerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91F93D69224691FA00E22AFD /* Debug */,
+				91F93D6A224691FA00E22AFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91F93D6B224691FA00E22AFD /* Build configuration list for PBXNativeTarget "SLCDancerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91F93D6C224691FA00E22AFD /* Debug */,
+				91F93D6D224691FA00E22AFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91F93D4D224691F800E22AFD /* Project object */;
+}
