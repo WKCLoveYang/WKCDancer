@@ -33,7 +33,7 @@ There are simple requirements for the calling sequence, starting with make, take
 
 1.5.3 change animation effects.
 
-1.5.5 get layout frame.
+1.5.6 get layout frame.
 
 
 
@@ -95,4 +95,4 @@ swift请移步[WKCWalker](https://github.com/WKCLoveYang/WKCWalker).使用方法
 
 1.5.3 优化动画效果.
 
-1.5.5 处理layout不能获得坐标的问题.
+1.5.6 处理layout不能获得坐标的问题.

@@ -570,14 +570,14 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
 {
     self.wkc_view_options = UIViewAnimationOptionTransitionCurlUp;
     self.wkc_view_theDancer = WKCDancerTransition;
-   return self;
+    return self;
 }
 
 - (UIView *)transitionCurlDown
 {
     self.wkc_view_options = UIViewAnimationOptionTransitionCurlDown;
     self.wkc_view_theDancer = WKCDancerTransition;
-   return self;
+    return self;
 }
 
 - (UIView *)transitionCrossDissolve
@@ -598,7 +598,7 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
 {
     self.wkc_view_options = UIViewAnimationOptionTransitionFlipFromBottom;
     self.wkc_view_theDancer = WKCDancerTransition;
-   return self;
+    return self;
 }
 
 #pragma mark -SPRING
@@ -646,44 +646,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -694,44 +726,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makePosition([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -742,44 +806,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -790,44 +886,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -838,44 +966,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -886,44 +1046,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -934,44 +1126,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScale([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScale([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -982,44 +1206,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1030,44 +1286,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeScaleY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1078,44 +1366,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1126,44 +1446,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1174,44 +1526,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeRotationZ([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1222,44 +1606,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBackground(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBackground(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1270,44 +1686,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1318,44 +1766,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeCornerRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1366,44 +1846,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeStrokeEnd([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1414,44 +1926,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeContent(self.wkc_view_from, self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1462,44 +2006,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeBorderWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1510,44 +2086,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowColor(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowColor(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1558,44 +2166,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOffset([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1606,44 +2246,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowOpacity([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1654,44 +2326,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.makeShadowRadius([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1702,44 +2406,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeFrame([(NSValue *)self.wkc_view_to CGRectValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1750,44 +2486,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1798,44 +2566,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1846,44 +2646,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1894,44 +2726,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1942,44 +2806,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -1990,44 +2886,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2038,44 +2966,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.takeSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2086,44 +3046,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveX([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2134,44 +3126,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveY([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2182,44 +3206,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveXY([(NSValue *)self.wkc_view_to CGPointValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2230,44 +3286,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2278,44 +3366,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2326,44 +3446,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.moveSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2374,44 +3526,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addLeading([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2422,44 +3606,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTraing([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2470,44 +3686,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addTop([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2518,44 +3766,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addBottom([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2566,44 +3846,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addWidth([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2614,44 +3926,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addHeight([self.wkc_view_to floatValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2662,44 +4006,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeInOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeIn.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeOut.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.addSize([(NSValue *)self.wkc_view_to CGSizeValue]).easeLiner.delay(self.wkc_view_delay).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2788,44 +4164,76 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.path(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.path(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeInOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeIn)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.path(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.path(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeIn.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeOut)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.path(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.path(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeOut.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
             else if (self.wkc_view_easeType == WKCViewEaseTypeLiner)
             {
                 if (self.wkc_view_spring)
                 {
-                    self.layer.path(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).spring.animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
                 else
                 {
-                    self.layer.path(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = self.completion ?: nil;
+                    self.layer.path(self.wkc_view_to).easeLiner.delay(self.wkc_view_delay).repeat(self.wkc_view_repeat).reverses(self.wkc_view_reverse).animate(self.wkc_view_animateDuration).completion = ^(WKCDancer animation) {
+                        if (self.completion) {
+                            self.completion(animation);
+                        }
+                    };
                 }
             }
         }
@@ -2836,3 +4244,4 @@ static NSString * const WKCDancerViewCompletionKey = @"wkc.view.completion";
 }
 
 @end
+
